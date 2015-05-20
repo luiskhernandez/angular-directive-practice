@@ -1,0 +1,13 @@
+<p>
+  {{ inside_directive }}
+</p>
+<p>
+  value selected: {{ selected }}
+</p>
+<ul class="nav nav-pills">
+  <li role="presentation" ng-class="isSelected(item)" ng-repeat="item in menuItems">
+    <a role="presentation" ng-click="select(item)" class="active" href="#">
+      {{ item }}
+    </a>
+  </li>
+</ul>
