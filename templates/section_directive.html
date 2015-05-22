@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading"> {{ section.title }}
+    <span class="pull-left badge" style="margin-right: 20px;">{{ index }}</span>
+    index :{{index}}
+    first :{{isFirst}}
+    last :{{isLast}}
+    {{$index}}
+    {{$first}}
+    {{$last}}
+    <button ng-click="up()" class="btn-success pull-right">
+      up
+    </button>
+    <div class="clearfix"></div>
+  </div>
+  <div class="panel-body">
+  </div>
+</div>
+

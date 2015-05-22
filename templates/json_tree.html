@@ -1,0 +1,10 @@
+<ul>
+<li ng-repeat="item in json.sections">
+  {{item.title}}
+  <ul>
+  	<li ng-repeat="item in item.questions">
+      {{item.question}}
+    </li>
+  </ul>
+</li>
+</ul>

@@ -1,0 +1,29 @@
+<div ng-repeat="section in contentObject.sections">
+<section-scope>
+  <div class="panel panel-default">
+    <div class="panel-heading"> {{ section.title }}
+      <span class="pull-left badge" style="margin-right: 20px;">{{ index }}</span>
+      <control-bar item="section" array=contentObject.sections index="$index" first="$first" last="$last">
+      </control-bar>
+      <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+      <div ng-repeat="question in section.questions">
+      <control-bar item="question" array=section.questions index="$index" first="$first" last="$last">
+      </control-bar>
+      <div class="row">
+        <div class="col-lg-6">
+           <p>{{ question.question }}</p>
+           <ul class="list-group">
+            <li class="list-group-item" ng-repeat="option in question.options">
+              {{ option.text }}
+            </li>
+           </ul>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+</section-scope>
+</div>
