@@ -1,9 +1,45 @@
-var app = angular.module('app',[]);
+var app = angular.module('app',['Chronicle']);
 
-app.controller('TestCtrl', function($scope){
+app.controller('TestCtrl', function($scope, Chronicle){
   $scope.title = "Directive Demo practice";
   $scope.number_array= ['1', '2', '3'];
   $scope.letter_array= ['a', 'b', 'c', 'd', 'e'];
+  random = function(){
+    random_ = _.random(0, 100);
+    return random_;
+  }
+  generateRandomSection = function(){
+    section = {
+      title: "Random Title "+ random(),
+      questions:[
+        generateRandomQuestion(), generateRandomQuestion(), generateRandomQuestion(), generateRandomQuestion()
+      ]
+    }
+    return section;
+  }
+
+  generateRandomQuestion = function(){
+    question= {
+      question: "Question "+random(),
+      options:[
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()},
+        {value: "1", text: "text ramdon "+random()}
+      ]
+    }
+    return question;
+  }
+  addRandomSection = function(){
+    section = generateRandomSection();
+    $scope.contentObject.sections.push(section);
+  }
   $scope.contentObject = {
     sections: [
     {
@@ -74,6 +110,11 @@ app.controller('TestCtrl', function($scope){
     }
     ]
   };
+  _.times(30, function(n){
+    addRandomSection();
+  });
+
+  $scope.history = Chronicle.record('contentObject', $scope);
 });
 
 
